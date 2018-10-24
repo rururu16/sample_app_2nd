@@ -21,3 +21,6 @@
 /yarn-error.log
 
 .byebug_history
+
+# Guardで設定したSpringファイル
+/spring/*.pid
