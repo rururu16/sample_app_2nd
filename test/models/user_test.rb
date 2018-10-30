@@ -71,7 +71,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-
-
+  test "ユーザのdigestがnilならauthenticated? はfalseを返す" do
+    assert_not @user.authenticated?('')
+  end
 
 end
