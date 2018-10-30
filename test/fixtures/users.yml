@@ -2,4 +2,26 @@ taro:
   name: taro example
   email: taro@example.com
   password_digest: <%= User.digest('password') %>
-  
+  admin: true
+
+jiro:
+  name: jiro
+  email: jiro@example.gov
+  password_digest: <%= User.digest('password') %>
+
+lana:
+  name: Lana Kane
+  email: hands@example.gov
+  password_digest: <%= User.digest('password') %>
+
+malory:
+  name: Malory Archer
+  email: boss@example.gov
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "ユーザー#{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
