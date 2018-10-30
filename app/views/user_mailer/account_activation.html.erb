@@ -1,0 +1,11 @@
+<h1>Sample App</h1>
+
+<p><%= @user.name %>さん</p>
+
+<p>
+Sample App への登録ありがとうございます。<br>
+下記のリンクをクリックすると登録が完了します。
+</p>
+
+<%= link_to "Activation", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
