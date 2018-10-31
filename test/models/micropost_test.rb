@@ -3,7 +3,7 @@ require 'test_helper'
 class MicropostTest < ActiveSupport::TestCase
   def setup
     @user = users(:taro)
-    @micropost = @user.microposts.build(content: "さんぷるぽすと")
+    @micropost = @user.microposts.build(content: "Lorem ipsum")
   end
 
   test "有効なデータ" do
@@ -25,8 +25,8 @@ class MicropostTest < ActiveSupport::TestCase
     assert_not @micropost.valid?
   end
 
-  test "マイクロソフトの並び順" do
+  test "micropostsの並び順" do
     assert_equal microposts(:most_recent), Micropost.first
   end
-  
+
 end
