@@ -74,7 +74,7 @@ class UserTest < ActiveSupport::TestCase
   test "ユーザのdigestがnilならauthenticated? はfalseを返す" do
     assert_not @user.authenticated?(:remember, '')
   end
-
+  
   test "紐づくmicropostもdestroyされる" do
     @user.save
     @user.microposts.create!(content: "さんぷる")
@@ -83,4 +83,14 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "following関連" do
+    taro = users(:taro)
+    jiro  = users(:jiro)
+    assert_not taro.following?(jiro)
+    taro.follow(jiro)
+    assert taro.following?(jiro)
+    assert jiro.followers.include?(taro)
+    taro.unfollow(jiro)
+    assert_not taro.following?(jiro)
+  end
 end
