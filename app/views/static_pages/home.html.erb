@@ -1,9 +1,21 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
 <div class="canter jumbotron">
   <h1>Welcome to the Sample App</h1>
 
   <h2>
     <a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-     sample application.
+    sample application.
   </h2>
 
   <%= link_to "Sign up now", signup_path, class: "btn btn-lg btn-primary" %>
@@ -11,4 +23,4 @@
 
 <%= link_to image_tag("rails.png", alt:"Rails logo"),
 'http://rubyonrails.org/'%>
-<%#= image_tag("kitten.jpg", alt:"kitten")%>
+<% end%>
