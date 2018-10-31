@@ -24,3 +24,5 @@
 
 # Guardで設定したSpringファイル
 /spring/*.pid
+# テスト画像
+/public/uploads
