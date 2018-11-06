@@ -1,0 +1,15 @@
+one:
+  follower: taro
+  followed: lana
+
+two:
+  follower: taro
+  followed: malory
+
+three:
+  follower: lana
+  followed: taro
+
+four:
+  follower: jiro
+  followed: taro
