@@ -93,4 +93,23 @@ class UserTest < ActiveSupport::TestCase
     taro.unfollow(jiro)
     assert_not taro.following?(jiro)
   end
+
+  test "feedに正しいpostが表示されている" do
+    michael = users(:taro)
+    archer  = users(:jiro)
+    lana    = users(:lana)
+    # フォローしているユーザーの投稿
+    lana.microposts.each do |post_following|
+      assert michael.feed.include?(post_following)
+    end
+    # 自分の投稿
+    michael.microposts.each do |post_self|
+      assert michael.feed.include?(post_self)
+    end
+    # フォローしていないユーザーの投稿
+    archer.microposts.each do |post_unfollowed|
+      assert_not michael.feed.include?(post_unfollowed)
+    end
+  end
+
 end
